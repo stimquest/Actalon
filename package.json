@@ -1,12 +1,11 @@
 {
-  "name": "actalon---étude-notariale",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
+  "name": "actalon-notaire",
+  "version": "1.0.0",
+  "description": "Site web pour l'étude notariale Actalon",
+  "main": "index.js",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
+    "start": "npx esbuild index.tsx --bundle --outfile=dist/index.js --servedir=dist --loader:.tsx=jsx --define:process.env.API_KEY='\"\"' --watch",
+    "build": "rm -rf dist && mkdir dist && cp index.html dist/index.html && cp -r public dist/public || true && npx esbuild index.tsx --bundle --minify --outfile=dist/index.js --loader:.tsx=jsx --define:process.env.NODE_ENV='\"production\"' --define:process.env.API_KEY='\"'${API_KEY}'\"'"
   },
   "dependencies": {
     "@google/genai": "^1.30.0",
@@ -14,9 +13,6 @@
     "react-dom": "^19.2.0"
   },
   "devDependencies": {
-    "@types/node": "^22.14.0",
-    "@vitejs/plugin-react": "^5.0.0",
-    "typescript": "~5.8.2",
-    "vite": "^6.2.0"
+    "esbuild": "^0.23.0"
   }
 }

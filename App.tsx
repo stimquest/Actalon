@@ -72,7 +72,7 @@ function App() {
           >
             {/* New PNG Logo */}
             <div className="w-14 h-14 mr-3">
-              <img src="public/logo.png" alt="Logo Actalon" className="w-full h-full object-contain" />
+              <img src="logo.png" alt="Logo Actalon" className="w-full h-full object-contain" />
             </div>
             <div className="flex flex-col">
               <h1 className="text-3xl font-logo font-bold text-actalon-navy tracking-tight leading-none">Actalon</h1>
@@ -96,7 +96,7 @@ function App() {
     <div className="relative bg-slate-900 min-h-[85vh] flex items-center overflow-hidden">
       <div className="absolute inset-0 z-0">
         <img
-          src="public/" // Confirmed path for image
+          src="" // Confirmed path for image
           alt="Salon de Provence - Fontaine Moussue ou Place"
           className="w-full h-full object-cover opacity-30"
         />
@@ -150,7 +150,7 @@ function App() {
           <div className="md:w-1/2 relative">
             <div className="absolute -top-4 -left-4 w-24 h-24 bg-actalon-gold/20 rounded-full z-0"></div>
             <img
-              src="public/CaroNotaire.png" // Confirmed path for image
+              src="CaroNotaire.png" // Confirmed path for image
               alt="Me Marie-Caroline LOUVEL"
               className="relative z-10 w-full rounded-sm shadow-xl"
             />

@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { ViewState, BlogPost } from './types';
-import { AssistantView } from './components/AssistantView';
 import { ArticleDetail } from './components/ArticleDetail';
 import { AdminPanel } from './components/AdminPanel';
 import { initialArticles } from './data/initialArticles';
 import {
   ScaleIcon, HomeIcon, UsersIcon, CoinsIcon, ArrowRightIcon,
-  PhoneIcon, MailIcon, MessageCircleIcon, ShieldIcon, ClockIcon, HeartIcon, CheckCircleIcon,
+  PhoneIcon, MailIcon, ShieldIcon, ClockIcon, HeartIcon, CheckCircleIcon,
   MapPinIcon, BriefcaseIcon, LeafIcon, CalculatorIcon, NewspaperIcon, LockIcon
 } from './components/Icons';
 
@@ -87,13 +86,6 @@ function App() {
             <button onClick={() => handleNavClick('tarifs')} className="nav-link text-sm font-medium text-slate-600 hover:text-actalon-navy hover:underline decoration-actalon-gold underline-offset-4">Tarifs</button>
             <button onClick={() => handleNavClick('blog')} className="nav-link text-sm font-medium text-slate-600 hover:text-actalon-navy hover:underline decoration-actalon-gold underline-offset-4">Actualités</button>
             <button onClick={() => handleNavClick('contact')} className="nav-link text-sm font-medium text-slate-600 hover:text-actalon-navy hover:underline decoration-actalon-gold underline-offset-4">Contact</button>
-            <button
-              onClick={() => setView(ViewState.ASSISTANT)}
-              className="bg-actalon-navy text-white px-5 py-2.5 rounded-sm text-sm font-semibold hover:bg-slate-800 transition-all flex items-center shadow-lg"
-            >
-              <MessageCircleIcon className="w-4 h-4 mr-2 text-actalon-gold" />
-              Assistant IA
-            </button>
           </div>
         </div>
       </div>
@@ -104,7 +96,7 @@ function App() {
     <div className="relative bg-slate-900 min-h-[85vh] flex items-center overflow-hidden">
       <div className="absolute inset-0 z-0">
         <img
-          src="public/CaroNotaire.png" // Confirmed path for image
+          src="public/" // Confirmed path for image
           alt="Salon de Provence - Fontaine Moussue ou Place"
           className="w-full h-full object-cover opacity-30"
         />
@@ -306,15 +298,6 @@ function App() {
           <br />
           Pour les prestations de conseil détachables (audit patrimonial, rédaction de statuts complexes), des <strong>honoraires</strong> libres sont pratiqués sur devis préalable.
         </p>
-        <div className="bg-slate-50 p-6 rounded-lg border border-slate-200 inline-block">
-          <p className="font-semibold text-actalon-navy mb-2">Vous souhaitez estimer vos "frais de notaire" ?</p>
-          <button
-            onClick={() => setView(ViewState.ASSISTANT)}
-            className="text-actalon-gold hover:text-actalon-navy font-bold underline underline-offset-4 transition-colors"
-          >
-            Demander une estimation rapide à l'Assistant
-          </button>
-        </div>
       </div>
     </section>
   );
@@ -389,7 +372,7 @@ function App() {
                 <MailIcon className="w-6 h-6 text-actalon-gold mt-1 mr-4 flex-shrink-0" />
                 <div>
                   <h4 className="text-lg font-bold">Email</h4>
-                  <p className="text-slate-300 text-sm break-all">marie-caroline.louvel@actalon.notaires.fr</p>
+                  <p className="text-slate-300 text-sm break-all">act@actalon.notaires.fr</p>
                 </div>
               </div>
             </div>
@@ -480,30 +463,6 @@ function App() {
     );
   }
 
-  if (view === ViewState.ASSISTANT) {
-    return (
-      <div className="min-h-screen flex flex-col font-sans text-slate-800">
-        <Nav />
-        <div className="py-12 bg-slate-100 min-h-[calc(100vh-80px)] flex-grow">
-          <div className="max-w-7xl mx-auto px-4">
-            <div className="mb-8">
-              <button
-                onClick={handleHomeClick}
-                className="flex items-center text-slate-500 hover:text-actalon-navy transition-colors mb-4 group"
-              >
-                <ArrowRightIcon className="w-4 h-4 mr-2 rotate-180 group-hover:-translate-x-1 transition-transform" />
-                Retour à l'accueil
-              </button>
-              <h1 className="text-3xl md:text-4xl font-serif font-bold text-actalon-navy">Espace Questions / Réponses</h1>
-              <p className="text-slate-600 mt-2 text-lg">Posez vos questions sur le droit de la famille, l'immobilier ou la succession.</p>
-            </div>
-            <AssistantView />
-          </div>
-        </div>
-        <Footer />
-      </div>
-    );
-  }
 
   // Home View
   return (
@@ -516,16 +475,6 @@ function App() {
         <Services />
         <Tarifs />
         <Blog />
-        <div className="bg-actalon-gold/10 py-12 text-center">
-          <h3 className="text-2xl font-serif font-bold text-actalon-navy mb-4">Besoin d'une réponse immédiate ?</h3>
-          <p className="text-slate-600 mb-6 max-w-2xl mx-auto">Notre assistant virtuel est disponible 24/7 pour répondre à vos premières interrogations juridiques.</p>
-          <button
-            onClick={() => setView(ViewState.ASSISTANT)}
-            className="bg-actalon-navy text-white px-8 py-3 rounded-full font-bold hover:shadow-lg transition-all"
-          >
-            Discuter avec l'assistant
-          </button>
-        </div>
         <Contact />
       </main>
 

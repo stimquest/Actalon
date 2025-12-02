@@ -23,6 +23,10 @@ Style :
 
 export const sendMessageToGemini = async (message: string): Promise<string> => {
   try {
+    if (!process.env.API_KEY) {
+      throw new Error("L'API Key n'est pas configurée. Veuillez vérifier vos variables d'environnement (ex: sur Netlify).");
+    }
+
     const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
     
     // Using gemini-2.5-flash for speed and efficiency in text tasks
@@ -42,6 +46,10 @@ export const sendMessageToGemini = async (message: string): Promise<string> => {
     return "Je suis désolé, je n'ai pas pu générer de réponse pour le moment. Veuillez réessayer.";
   } catch (error) {
     console.error("Gemini API Error:", error);
-    throw new Error("Une erreur est survenue lors de la communication avec l'assistant.");
+    if (error instanceof Error) {
+        // Provide a more detailed error message to the user
+        return `Une erreur est survenue lors de la communication avec l'assistant : ${error.message}.`;
+    }
+    return "Une erreur inconnue est survenue lors de la communication avec l'assistant. Veuillez réessayer.";
   }
 };

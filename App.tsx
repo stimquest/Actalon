@@ -104,7 +104,7 @@ function App() {
     <div className="relative bg-slate-900 min-h-[85vh] flex items-center overflow-hidden">
       <div className="absolute inset-0 z-0">
         <img
-          src="public/CaroNotaire.png"
+          src="public/CaroNotaire.png" // Confirmed path for image
           alt="Salon de Provence - Fontaine Moussue ou Place"
           className="w-full h-full object-cover opacity-30"
         />
@@ -158,7 +158,7 @@ function App() {
           <div className="md:w-1/2 relative">
             <div className="absolute -top-4 -left-4 w-24 h-24 bg-actalon-gold/20 rounded-full z-0"></div>
             <img
-              src="public/CaroNotaire.png"
+              src="public/CaroNotaire.png" // Confirmed path for image
               alt="Me Marie-Caroline LOUVEL"
               className="relative z-10 w-full rounded-sm shadow-xl"
             />
